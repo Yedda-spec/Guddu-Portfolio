@@ -79,7 +79,7 @@
       "id": "upi-transaction-dashboard",
       "title": "UPI Transaction Analysis Dashboard",
       "subtitle": "Independent Project",
-      "image": "",
+      "image": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789942544/Screenshot_2026-09-21_034521.png",
       "type": "case-study",
       "tools": ["Power BI"],
       "summary": "An interactive Power BI dashboard for exploring UPI transaction patterns across banks and time.",
