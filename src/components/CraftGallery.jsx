@@ -19,10 +19,45 @@ const GithubIcon = () => (
   </svg>
 );
 
+function CaseStudyCard({ item, index, onOpen }) {
+  return (
+    <motion.button
+      onClick={() => onOpen(item)}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="text-left w-full rounded-2xl overflow-hidden bg-white border border-black/10 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+    >
+      <div className="w-full aspect-video bg-neutral-50 flex items-center justify-center">
+        {item.image ? (
+          <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center border-b border-black/10">
+            <span className="text-xs uppercase tracking-wide text-black/30 px-4 text-center">
+              Add screenshot
+            </span>
+          </div>
+        )}
+      </div>
+      <div className="p-5">
+        <p className="font-serif text-lg leading-tight mb-0.5">{item.title}</p>
+        {item.subtitle && <p className="text-xs text-black/40 mb-3">{item.subtitle}</p>}
+        {item.summary && (
+          <p className="text-sm text-black/60 leading-relaxed mb-3 line-clamp-2">{item.summary}</p>
+        )}
+        <span className="text-xs font-medium text-emerald-700 inline-flex items-center gap-1">
+          View case study
+          <span aria-hidden>&rarr;</span>
+        </span>
+      </div>
+    </motion.button>
+  );
+}
+
 function PosterCard({ item, index, onOpen }) {
   const rotate = rotations[index % rotations.length];
-  const isCaseStudy = item.type === "case-study";
-  const thumb = !isCaseStudy && item.link ? driveThumbnailUrl(item.link) : "";
+  const thumb = item.link ? driveThumbnailUrl(item.link) : "";
 
   return (
     <motion.button
@@ -78,7 +113,7 @@ function CaseStudyModal({ item, onClose }) {
     >
       <div className="w-full aspect-video bg-neutral-100">
         {item.image ? (
-          <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+          <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top" />
         ) : (
           <div className="w-full h-full flex items-center justify-center border-b border-black/10">
             <span className="text-xs uppercase tracking-wide text-black/30">Add screenshot</span>
@@ -222,9 +257,13 @@ export default function CraftGallery() {
         Craft I&rsquo;m proud of
       </motion.h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 md:px-16">
-        {profile.craftItems.map((item, i) => (
-          <PosterCard key={item.id} item={item} index={i} onOpen={setActive} />
-        ))}
+        {profile.craftItems.map((item, i) =>
+          item.type === "case-study" ? (
+            <CaseStudyCard key={item.id} item={item} index={i} onOpen={setActive} />
+          ) : (
+            <PosterCard key={item.id} item={item} index={i} onOpen={setActive} />
+          )
+        )}
       </div>
       <CraftModal item={active} onClose={() => setActive(null)} />
     </div>
