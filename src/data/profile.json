@@ -46,13 +46,15 @@
     { "title": "SQL Certification", "detail": "Certified in SQL for data querying and analysis." },
     { "title": "Experience Certificate", "detail": "Awarded by WebAccuracy for role as Data Analyst." }
   ],
-  "projects": [
+  "craftItems": [
     {
       "id": "hotel-booking-analysis",
       "title": "Hotel Booking Data Analysis",
       "subtitle": "Independent Project",
       "image": "",
+      "type": "case-study",
       "tools": ["Python", "pandas", "NumPy"],
+      "summary": "Exploratory analysis of a hotel reservations dataset — cleaning, outlier detection, and distribution analysis.",
       "bullets": [
         "Conducted exploratory data analysis on a hotel reservations dataset, applying data cleaning, quantile-based outlier detection, and distribution analysis (mean, median, standard deviation, KDE)."
       ],
@@ -63,7 +65,9 @@
       "title": "YouTube Content-Based Recommender System",
       "subtitle": "Independent Project",
       "image": "",
+      "type": "case-study",
       "tools": ["Python", "pandas", "scikit-learn"],
+      "summary": "A content-based recommender built on 40,000+ YouTube videos using TF-IDF and cosine similarity.",
       "bullets": [
         "Designed and implemented a content-based recommendation system on 40,000+ real-world YouTube videos, applying TF-IDF vectorization and cosine similarity to model content relationships.",
         "Conducted exploratory data analysis to investigate engagement patterns — including views-likes correlation and category-level performance — informing feature selection for the recommendation model.",
@@ -76,7 +80,9 @@
       "title": "UPI Transaction Analysis Dashboard",
       "subtitle": "Independent Project",
       "image": "",
+      "type": "case-study",
       "tools": ["Power BI"],
+      "summary": "An interactive Power BI dashboard for exploring UPI transaction patterns across banks and time.",
       "bullets": [
         "Built an interactive Power BI dashboard analyzing UPI (Unified Payments Interface) transaction data across banks and time periods.",
         "Designed multi-page report with dynamic slicers, column and line charts, and pivot tables for drill-down analysis of transaction patterns by bank and category.",
@@ -84,32 +90,6 @@
         "Applied data modeling and visualization best practices to transform raw transaction records into actionable business insights."
       ],
       "github": "https://github.com/Yedda-spec/UPI-Transaction-Analysis"
-    }
-  ],
-  "craftItems": [
-    {
-      "id": "sales-dashboard",
-      "title": "Sales Performance Dashboard",
-      "image": "",
-      "type": "pdf",
-      "vertical": true,
-      "link": ""
-    },
-    {
-      "id": "churn-analysis",
-      "title": "Customer Churn Analysis",
-      "image": "",
-      "type": "pdf",
-      "vertical": true,
-      "link": ""
-    },
-    {
-      "id": "excel-reporting",
-      "title": "Excel Automated Reporting",
-      "image": "",
-      "type": "pdf",
-      "vertical": true,
-      "link": ""
     }
   ],
   "testimonials": [

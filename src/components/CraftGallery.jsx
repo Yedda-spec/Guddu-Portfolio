@@ -13,9 +13,16 @@ function PlayIcon() {
   );
 }
 
+const GithubIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+  </svg>
+);
+
 function PosterCard({ item, index, onOpen }) {
   const rotate = rotations[index % rotations.length];
-  const thumb = item.link ? driveThumbnailUrl(item.link) : "";
+  const isCaseStudy = item.type === "case-study";
+  const thumb = !isCaseStudy && item.link ? driveThumbnailUrl(item.link) : "";
 
   return (
     <motion.button
@@ -52,15 +59,107 @@ function PosterCard({ item, index, onOpen }) {
           </div>
         )}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-          <p className="text-white font-serif text-lg">{item.title}</p>
+          <p className="text-white font-serif text-lg leading-tight">{item.title}</p>
+          {item.subtitle && <p className="text-white/70 text-xs mt-0.5">{item.subtitle}</p>}
         </div>
       </div>
     </motion.button>
   );
 }
 
+function CaseStudyModal({ item, onClose }) {
+  return (
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.9, opacity: 0 }}
+      onClick={(e) => e.stopPropagation()}
+      className="w-[92vw] max-w-lg max-h-[85vh] overflow-y-auto bg-white rounded-2xl relative"
+    >
+      <div className="w-full aspect-video bg-neutral-100">
+        {item.image ? (
+          <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center border-b border-black/10">
+            <span className="text-xs uppercase tracking-wide text-black/30">Add screenshot</span>
+          </div>
+        )}
+      </div>
+
+      <div className="p-6 md:p-8">
+        <p className="font-serif text-2xl mb-1">{item.title}</p>
+        {item.subtitle && <p className="text-xs text-black/40 mb-4">{item.subtitle}</p>}
+
+        {item.summary && (
+          <p className="text-sm text-black/70 leading-relaxed mb-5">{item.summary}</p>
+        )}
+
+        {item.bullets && (
+          <ul className="space-y-2 mb-5">
+            {item.bullets.map((b, i) => (
+              <li key={i} className="text-sm text-black/60 leading-relaxed flex gap-2">
+                <span className="text-emerald-600 mt-1">&bull;</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {item.tools && (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {item.tools.map((t) => (
+              <span
+                key={t}
+                className="text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {item.github && (
+          <a
+            href={item.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium bg-black text-white rounded-full px-5 py-2.5 hover:bg-black/85 transition-colors"
+          >
+            <GithubIcon />
+            View on GitHub
+          </a>
+        )}
+      </div>
+
+      <button
+        onClick={onClose}
+        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 shadow flex items-center justify-center text-black"
+      >
+        ×
+      </button>
+    </motion.div>
+  );
+}
+
 function CraftModal({ item, onClose }) {
   if (!item) return null;
+
+  if (item.type === "case-study") {
+    return (
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4"
+        >
+          <CaseStudyModal item={item} onClose={onClose} />
+        </motion.div>
+      </AnimatePresence>
+    );
+  }
+
   const hasLink = Boolean(item.link);
   const isVertical = item.vertical !== false;
 
