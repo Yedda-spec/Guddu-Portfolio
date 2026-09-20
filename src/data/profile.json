@@ -1,0 +1,93 @@
+{
+  "name": "Sandeepa Patra",
+  "role": "Data Analyst",
+  "location": "New Delhi, India",
+  "openToWork": true,
+  "experienceYears": "1",
+  "bio": "Detail-oriented Data Analyst with hands-on experience turning raw data into clear, actionable insights. Skilled in SQL, Excel, and data visualization, with a strong foundation in statistical analysis and reporting.",
+  "avatar": "",
+  "heroTagline": "A detail-oriented data analyst turning raw numbers into clear, actionable insights. Queries, dashboards & decisions.",
+  "heroImages": {
+    "photo": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789886292/WhatsApp_Image_2026-09-19_at_1.57.50_PM.jpg",
+    "cautionSign": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789884794/python.svg",
+    "computer": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789885057/ChatGPT_Image_Sep_20_2026_11_47_28_AM.png",
+    "coffee": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789884806/Gemini_Generated_Image_264loq264loq264l_1.png",
+    "cabinet": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789884869/8660655.png",
+    "nameTag": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789884544/ChatGPT_Image_Sep_20_2026_11_36_29_AM.png",
+    "notepad": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789884560/yellow-paper-bg.png",
+    "welcomeMat": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789884562/card-shadow-895.png",
+    "footerClouds": ""
+  },
+  "email": "sandeepabiswas531@gmail.com",
+  "phone": "918287110257",
+  "linkedin": "https://www.linkedin.com/in/sandeepa-patra-a4a124217/",
+  "github": "https://github.com/Yedda-spec",
+  "resumeLink": "",
+  "externalLink": "",
+  "tools": ["SQL", "MS Excel (Advanced)", "Power BI", "Google Sheets", "MS Office Suite"],
+  "skills": [
+    "Data Cleaning",
+    "Pivot Tables",
+    "Statistical Analysis",
+    "Excel Dashboards",
+    "Charts & Reporting",
+    "Problem Solving",
+    "Analytical Thinking",
+    "Attention to Detail"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's Program",
+      "institution": "Indira Gandhi National Open University (IGNOU)",
+      "year": "Jan 2022 - Dec 2024"
+    }
+  ],
+  "achievements": [
+    { "title": "SQL Certification", "detail": "Certified in SQL for data querying and analysis." },
+    { "title": "Experience Certificate", "detail": "Awarded by WebAccuracy for role as Data Analyst." }
+  ],
+  "craftItems": [
+    {
+      "id": "sales-dashboard",
+      "title": "Sales Performance Dashboard",
+      "image": "",
+      "type": "pdf",
+      "vertical": true,
+      "link": ""
+    },
+    {
+      "id": "churn-analysis",
+      "title": "Customer Churn Analysis",
+      "image": "",
+      "type": "pdf",
+      "vertical": true,
+      "link": ""
+    },
+    {
+      "id": "excel-reporting",
+      "title": "Excel Automated Reporting",
+      "image": "",
+      "type": "pdf",
+      "vertical": true,
+      "link": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "testimonial-1",
+      "name": "Jhalak Roy",
+      "role": "Senior Project Manager, WebAccuracy",
+      "quote": "Turned our raw data into a dashboard the whole team actually uses.",
+      "photo": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789828580/Screenshot_2026-09-19_195950.png",
+      "link": ""
+    },
+    {
+      "id": "testimonial-2",
+      "name": "Sejal Sinha",
+      "role": "Client Work",
+      "quote": "Sharp with numbers and even sharper at explaining what they mean.",
+      "photo": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789829126/WhatsApp_Image_2026-09-19_at_8.08.46_PM.jpg",
+      "link": ""
+    }
+  ]
+}
