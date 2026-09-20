@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const experience = [
   {
@@ -14,10 +15,23 @@ const experience = [
     ],
   },
   {
+    company: "Accenture",
+    title: "Technical Associate",
+    date: "2024",
+    position: "bottom",
+    logoClass: "bg-purple-700",
+    logo: "A",
+    bullets: [
+      "Collaborated on **end-to-end resolution** of technical support tickets, contributing to workflow documentation.",
+      "Diagnosed **system issues** and managed client data with internal tools, while contributing to process improvement.",
+      "Streamlined **ticket handling and escalation processes**, leading to faster resolution times and improved efficiency.",
+    ],
+  },
+  {
     company: "WebAccuracy",
     title: "Data Analyst",
-    date: "Jul 2024 — Dec 2024",
-    position: "bottom",
+    date: "Jul 2025 — Dec 2025",
+    position: "top",
     logoClass: "bg-emerald-600",
     logo: "W",
     bullets: [
@@ -30,9 +44,9 @@ const experience = [
     company: "Certifications",
     title: "Achievements",
     date: "Dec 2024",
-    position: "top",
+    position: "bottom",
     logoClass: "bg-neutral-800",
-    logo: "A",
+    logo: "C",
     bullets: [
       "**SQL Certification** — Certified in SQL for data querying and analysis.",
       "**Experience Certificate** — Awarded by WebAccuracy for role as Data Analyst.",
@@ -65,7 +79,7 @@ function ExperienceCard({ entry, index = 0 }) {
         delay: index * 0.5,
       }}
       style={{ transformOrigin: pivot }}
-      className="w-72 rounded-2xl bg-white shadow-md border border-black/5 p-5"
+      className="w-md rounded-2xl bg-white shadow-md border border-black/5 p-7"
     >
       <div className="flex items-center gap-3 mb-3">
         <div className={`w-9 h-9 rounded-lg ${entry.logoClass} text-white flex items-center justify-center font-serif font-semibold`}>
@@ -96,16 +110,80 @@ function DatePill({ date }) {
   );
 }
 
+function ExperienceTimeline() {
+  return (
+    <div
+      className="grid h-full gap-x-8"
+      style={{
+        gridTemplateColumns: `repeat(${experience.length}, max-content)`,
+        gridTemplateRows: "auto auto auto auto auto",
+      }}
+    >
+      {experience.map((entry, i) => (
+        <div key={entry.company} style={{ gridColumn: i + 1, gridRow: 1 }} className="flex items-end justify-center pb-6">
+          {entry.position === "top" ? <ExperienceCard entry={entry} index={i} /> : <DatePill date={entry.date} />}
+        </div>
+      ))}
+      {experience.map((_, i) => (
+        <div key={`c1-${i}`} style={{ gridColumn: i + 1, gridRow: 2 }} className="h-6 flex justify-center">
+          <div className="w-px bg-neutral-300 h-full" />
+        </div>
+      ))}
+      <div style={{ gridColumn: "1 / -1", gridRow: 3 }} className="relative h-px bg-neutral-300">
+        {experience.map((_, i) => (
+          <div
+            key={`dot-${i}`}
+            className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-emerald-500"
+            style={{ left: `calc(${(i + 0.5) * (100 / experience.length)}% - 6px)` }}
+          />
+        ))}
+      </div>
+      {experience.map((_, i) => (
+        <div key={`c2-${i}`} style={{ gridColumn: i + 1, gridRow: 4 }} className="h-6 flex justify-center">
+          <div className="w-px bg-neutral-300 h-full" />
+        </div>
+      ))}
+      {experience.map((entry, i) => (
+        <div key={`${entry.company}-b`} style={{ gridColumn: i + 1, gridRow: 5 }} className="flex items-start justify-center pt-6">
+          {entry.position === "bottom" ? <ExperienceCard entry={entry} index={i} /> : <DatePill date={entry.date} />}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Experience() {
+  const scrollRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const trackRef = useRef(null);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start start", "end end"],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -maxScroll]);
+
+  useEffect(() => {
+    const update = () => {
+      if (trackRef.current && wrapperRef.current) {
+        setMaxScroll(Math.max(0, trackRef.current.scrollWidth - wrapperRef.current.clientWidth));
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-24 px-6 md:px-16"
+      className="py-24"
     >
-      <div className="max-w-2xl mx-auto text-center mb-16">
+      <div className="max-w-2xl mx-auto text-center mb-16 px-6 md:px-16">
         <div className="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-3">
           <span>&#9670;</span>
           <span>Experience</span>
@@ -116,43 +194,11 @@ export default function Experience() {
         </p>
       </div>
 
-      <div className="overflow-x-auto">
-        <div
-          className="grid gap-x-10 min-w-max px-4"
-          style={{
-            gridTemplateColumns: `repeat(${experience.length}, minmax(18rem, 1fr))`,
-            gridTemplateRows: "auto auto auto auto auto",
-          }}
-        >
-          {experience.map((entry, i) => (
-            <div key={entry.company} style={{ gridColumn: i + 1, gridRow: 1 }} className="flex items-end justify-center pb-6">
-              {entry.position === "top" ? <ExperienceCard entry={entry} index={i} /> : <DatePill date={entry.date} />}
-            </div>
-          ))}
-          {experience.map((_, i) => (
-            <div key={`c1-${i}`} style={{ gridColumn: i + 1, gridRow: 2 }} className="h-6 flex justify-center">
-              <div className="w-px bg-neutral-300 h-full" />
-            </div>
-          ))}
-          <div style={{ gridColumn: "1 / -1", gridRow: 3 }} className="relative h-px bg-neutral-300">
-            {experience.map((_, i) => (
-              <div
-                key={`dot-${i}`}
-                className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-emerald-500"
-                style={{ left: `calc(${(i + 0.5) * (100 / experience.length)}% - 6px)` }}
-              />
-            ))}
-          </div>
-          {experience.map((_, i) => (
-            <div key={`c2-${i}`} style={{ gridColumn: i + 1, gridRow: 4 }} className="h-6 flex justify-center">
-              <div className="w-px bg-neutral-300 h-full" />
-            </div>
-          ))}
-          {experience.map((entry, i) => (
-            <div key={`${entry.company}-b`} style={{ gridColumn: i + 1, gridRow: 5 }} className="flex items-start justify-center pt-6">
-              {entry.position === "bottom" ? <ExperienceCard entry={entry} index={i} /> : <DatePill date={entry.date} />}
-            </div>
-          ))}
+      <div ref={scrollRef} style={{ height: "320vh" }} className="relative">
+        <div ref={wrapperRef} className="sticky top-0 h-screen flex items-center overflow-hidden">
+          <motion.div ref={trackRef} style={{ x }} className="h-80 shrink-0 px-6 md:px-16">
+            <ExperienceTimeline />
+          </motion.div>
         </div>
       </div>
     </motion.div>
