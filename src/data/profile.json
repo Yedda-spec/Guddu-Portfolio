@@ -46,6 +46,46 @@
     { "title": "SQL Certification", "detail": "Certified in SQL for data querying and analysis." },
     { "title": "Experience Certificate", "detail": "Awarded by WebAccuracy for role as Data Analyst." }
   ],
+  "projects": [
+    {
+      "id": "hotel-booking-analysis",
+      "title": "Hotel Booking Data Analysis",
+      "subtitle": "Independent Project",
+      "image": "",
+      "tools": ["Python", "pandas", "NumPy"],
+      "bullets": [
+        "Conducted exploratory data analysis on a hotel reservations dataset, applying data cleaning, quantile-based outlier detection, and distribution analysis (mean, median, standard deviation, KDE)."
+      ],
+      "github": "https://github.com/Yedda-spec/hotel-booking-data-analysis"
+    },
+    {
+      "id": "youtube-content-recommender",
+      "title": "YouTube Content-Based Recommender System",
+      "subtitle": "Independent Project",
+      "image": "",
+      "tools": ["Python", "pandas", "scikit-learn"],
+      "bullets": [
+        "Designed and implemented a content-based recommendation system on 40,000+ real-world YouTube videos, applying TF-IDF vectorization and cosine similarity to model content relationships.",
+        "Conducted exploratory data analysis to investigate engagement patterns — including views-likes correlation and category-level performance — informing feature selection for the recommendation model.",
+        "Independently designed the experiment end-to-end: data acquisition, cleaning, feature engineering, model implementation, and evaluation."
+      ],
+      "github": "https://github.com/Yedda-spec/youtube-content-recommender"
+    },
+    {
+      "id": "upi-transaction-dashboard",
+      "title": "UPI Transaction Analysis Dashboard",
+      "subtitle": "Independent Project",
+      "image": "",
+      "tools": ["Power BI"],
+      "bullets": [
+        "Built an interactive Power BI dashboard analyzing UPI (Unified Payments Interface) transaction data across banks and time periods.",
+        "Designed multi-page report with dynamic slicers, column and line charts, and pivot tables for drill-down analysis of transaction patterns by bank and category.",
+        "Implemented interactive navigation using bookmarks and action buttons for a guided data exploration experience.",
+        "Applied data modeling and visualization best practices to transform raw transaction records into actionable business insights."
+      ],
+      "github": "https://github.com/Yedda-spec/UPI-Transaction-Analysis"
+    }
+  ],
   "craftItems": [
     {
       "id": "sales-dashboard",

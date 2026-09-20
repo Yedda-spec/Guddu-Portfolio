@@ -22,6 +22,7 @@ const GithubIcon = () => (
 
 const links = (resumeLink) => [
   { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
   { href: "#craft", label: "Craft" },
   { href: "#experience", label: "Experience" },
   ...(resumeLink ? [{ href: resumeLink, label: "Portfolio", external: true }] : []),
