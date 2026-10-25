@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import profile from "../data/profile.json";
 
 const PhoneIcon = () => (
@@ -30,26 +31,40 @@ const links = (resumeLink) => [
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const navLinks = links(profile.resumeLink);
+  const { pathname } = useLocation();
+  const onHome = pathname === "/";
+
+  const hashHref = (href) => (onHome ? href : `/${href}`);
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-5 md:px-8 h-16 flex items-center justify-between">
-        <a href="#hero" className="font-serif text-2xl font-semibold tracking-tight">
+        <Link to={onHome ? "#hero" : "/"} className="font-serif text-2xl font-semibold tracking-tight">
           {profile.name.split(" ")[0]}
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-[Inter] text-black/70">
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target={l.external ? "_blank" : undefined}
-              rel={l.external ? "noreferrer" : undefined}
-              className="hover:text-black transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            l.external ? (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-black transition-colors"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <a
+                key={l.label}
+                href={hashHref(l.href)}
+                className="hover:text-black transition-colors"
+              >
+                {l.label}
+              </a>
+            )
+          )}
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -108,7 +123,7 @@ export default function Nav() {
               {navLinks.map((l) => (
                 <a
                   key={l.label}
-                  href={l.href}
+                  href={l.external ? l.href : hashHref(l.href)}
                   target={l.external ? "_blank" : undefined}
                   rel={l.external ? "noreferrer" : undefined}
                   onClick={() => setOpen(false)}

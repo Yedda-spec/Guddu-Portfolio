@@ -48,25 +48,97 @@
   ],
   "craftItems": [
     {
+      "id": "travel-weather-planner",
+      "title": "Travel Weather Planner",
+      "subtitle": "Independent Project",
+      "image": "https://res.cloudinary.com/xjo36sha/image/upload/v1792910522/Screenshot_2026-10-25_121042.png",
+      "image2": "https://res.cloudinary.com/xjo36sha/image/upload/v1792912833/Screenshot_2026-10-25_125017.png",
+      "type": "case-study",
+      "role": "Data Pipeline & Dashboard · Independent Project",
+      "category": "Python & SQL",
+      "status": "Live",
+      "tools": ["Python", "Pandas", "PostgreSQL", "Advanced SQL", "Tableau", "NumPy", "Snowflake", "Statistical Analysis", "Data Cleaning", "Data Wrangling", "Matplotlib"],
+      "summary": "A data pipeline and dashboard that scores the best months to visit 16 destinations using 5 years of daily weather data.",
+      "bullets": [
+        "Collected 5 years of daily weather data (29,216 records) for 16 destinations via API using Python and pandas.",
+        "Cleaned and structured the raw records into a consistent schema, handling missing values and normalizing units across all 16 destinations.",
+        "Built a PostgreSQL database with views, CTEs and window functions to score and rank the best months to travel.",
+        "Presented the ranked results in an interactive Tableau dashboard comparing famous vs. hidden-gem destinations by month."
+      ],
+      "github": "https://github.com/Yedda-spec/travel-weather-planner",
+      "liveLink": "https://public.tableau.com/app/profile/sandeepa.patra/viz/FamousvsHiddenGems-WhenShouldYouTravel/Dashboard1"
+    },
+    {
+      "id": "delhi-aqi-forecaster",
+      "title": "Delhi AQI Forecaster",
+      "subtitle": "Independent Project",
+      "image": "https://res.cloudinary.com/xjo36sha/image/upload/v1792915382/Screenshot_2026-10-25_133252.png",
+      "image2": "https://res.cloudinary.com/xjo36sha/image/upload/v1792916076/Screenshot_2026-10-25_134426.png",
+      "type": "case-study",
+      "role": "Time-Series Forecasting · Independent Project",
+      "category": "Python & ML",
+      "status": "Code",
+      "tools": ["Python", "Pandas", "NumPy", "scikit-learn", "Advanced SQL", "Statistical Analysis", "Data Cleaning", "Data Wrangling", "Matplotlib", "Seaborn"],
+      "summary": "A machine learning pipeline that forecasts Delhi's next-day PM2.5 by merging weather, air-quality, and NASA satellite fire data.",
+      "bullets": [
+        "Merged weather, air-quality and NASA satellite fire data (881 days) to forecast Delhi's next-day PM2.5.",
+        "Engineered lag and rolling-window features from the merged time series to capture pollution build-up and weather effects.",
+        "Compared Linear Regression and Random Forest against a persistence baseline, evaluating performance with time-based validation.",
+        "Validated the models across two distinct test periods to confirm the forecast held up beyond a single season."
+      ],
+      "github": "https://github.com/Yedda-spec/delhi-aqi-forecaster"
+    },
+    {
       "id": "hotel-booking-analysis",
       "title": "Hotel Booking Data Analysis",
       "subtitle": "Independent Project",
       "image": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789942153/WhatsApp_Image_2026-09-21_at_3.27.59_AM.jpg",
+      "image2": "https://res.cloudinary.com/xjo36sha/image/upload/v1792916304/Screenshot_2026-10-25_134816.png",
       "type": "case-study",
-      "tools": ["Python", "pandas", "NumPy"],
+      "role": "Exploratory Data Analysis · Independent Project",
+      "category": "Python & pandas",
+      "status": "Code",
+      "tools": ["Python", "Pandas", "NumPy", "Advanced SQL", "Statistical Analysis", "Data Cleaning", "Data Wrangling", "Matplotlib", "Seaborn", "Excel Dashboards", "MS Excel (Advanced)"],
       "summary": "Exploratory analysis of a hotel reservations dataset — cleaning, outlier detection, and distribution analysis.",
       "bullets": [
-        "Conducted exploratory data analysis on a hotel reservations dataset, applying data cleaning, quantile-based outlier detection, and distribution analysis (mean, median, standard deviation, KDE)."
+        "Performed exploratory data analysis on hotel reservations, applying data cleaning and distribution analysis with pandas.",
+        "Investigated arrival patterns through time-series aggregation, uncovering seasonal peaks and weekday/weekend booking trends.",
+        "Applied quantile-based outlier detection and computed distribution statistics (mean, median, standard deviation, KDE) to understand booking lead times.",
+        "Visualized findings through histograms and KDE plots to surface actionable patterns in cancellations and lead-time behavior."
       ],
       "github": "https://github.com/Yedda-spec/hotel-booking-data-analysis"
+    },
+    {
+      "id": "upi-transaction-dashboard",
+      "title": "UPI Transaction Analysis Dashboard",
+      "subtitle": "Independent Project",
+      "image": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789942544/Screenshot_2026-09-21_034521.png",
+      "image2": "https://res.cloudinary.com/xjo36sha/image/upload/v1792916373/Screenshot_2026-10-25_134910.png",
+      "type": "case-study",
+      "role": "Interactive Dashboard · Independent Project",
+      "category": "Power BI",
+      "status": "Code",
+      "tools": ["Power BI", "DAX", "Advanced SQL", "Excel Dashboards", "Charts & Pivot Tables", "Data Cleaning", "Statistical Analysis", "MS Excel (Advanced)", "MS Office Suite", "Google Sheets", "Data Wrangling"],
+      "summary": "An interactive Power BI dashboard for exploring UPI transaction patterns across banks and time.",
+      "bullets": [
+        "Built an interactive multi-page Power BI dashboard analyzing UPI transactions across banks and time periods.",
+        "Designed dynamic slicers, column and line charts, and pivot tables for drill-down analysis of transaction patterns by bank and category.",
+        "Implemented bookmarks and action buttons for guided navigation, turning raw transaction records into actionable insights.",
+        "Applied data modeling and DAX-driven visualization best practices to transform the dataset into a clear, decision-ready report."
+      ],
+      "github": "https://github.com/Yedda-spec/UPI-Transaction-Analysis"
     },
     {
       "id": "youtube-content-recommender",
       "title": "YouTube Content-Based Recommender System",
       "subtitle": "Independent Project",
       "image": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789942153/WhatsApp_Image_2026-09-21_at_3.27.05_AM.jpg",
+      "image2": "",
       "type": "case-study",
-      "tools": ["Python", "pandas", "scikit-learn"],
+      "role": "Recommender System · Independent Project",
+      "category": "Python & ML",
+      "status": "Code",
+      "tools": ["Python", "Pandas", "scikit-learn", "NumPy", "Advanced SQL", "Statistical Analysis", "Data Cleaning", "Data Wrangling", "Matplotlib", "Seaborn", "Google Sheets"],
       "summary": "A content-based recommender built on 40,000+ YouTube videos using TF-IDF and cosine similarity.",
       "bullets": [
         "Designed and implemented a content-based recommendation system on 40,000+ real-world YouTube videos, applying TF-IDF vectorization and cosine similarity to model content relationships.",
@@ -74,22 +146,6 @@
         "Independently designed the experiment end-to-end: data acquisition, cleaning, feature engineering, model implementation, and evaluation."
       ],
       "github": "https://github.com/Yedda-spec/youtube-content-recommender"
-    },
-    {
-      "id": "upi-transaction-dashboard",
-      "title": "UPI Transaction Analysis Dashboard",
-      "subtitle": "Independent Project",
-      "image": "https://res.cloudinary.com/im8pkdqg/image/upload/v1789942544/Screenshot_2026-09-21_034521.png",
-      "type": "case-study",
-      "tools": ["Power BI"],
-      "summary": "An interactive Power BI dashboard for exploring UPI transaction patterns across banks and time.",
-      "bullets": [
-        "Built an interactive Power BI dashboard analyzing UPI (Unified Payments Interface) transaction data across banks and time periods.",
-        "Designed multi-page report with dynamic slicers, column and line charts, and pivot tables for drill-down analysis of transaction patterns by bank and category.",
-        "Implemented interactive navigation using bookmarks and action buttons for a guided data exploration experience.",
-        "Applied data modeling and visualization best practices to transform raw transaction records into actionable business insights."
-      ],
-      "github": "https://github.com/Yedda-spec/UPI-Transaction-Analysis"
     }
   ],
   "testimonials": [
