@@ -20,22 +20,9 @@ const BarChartIcon = () => (
   </svg>
 );
 
-const PlaneIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
 const FlaskIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M9 2v6L3.5 18a2 2 0 0 0 1.8 3h13.4a2 2 0 0 0 1.8-3L15 8V2M9 2h6M8 14h8" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const GlobeIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -59,22 +46,10 @@ const SKILL_GROUPS = [
     items: ["Power BI (DAX)", "Tableau", "Excel (Pivot Tables, Dashboards)", "Google Sheets"],
   },
   {
-    title: "Travel Systems",
-    icon: PlaneIcon,
-    tone: { bg: "bg-purple-50", text: "text-purple-700", border: "border-purple-200" },
-    items: ["Amadeus (GDS)", "CRM"],
-  },
-  {
     title: "Methods",
     icon: FlaskIcon,
     tone: { bg: "bg-rose-50", text: "text-rose-700", border: "border-rose-200" },
     items: ["Data Cleaning", "Exploratory Data Analysis", "Time-Series Analysis", "Regression", "Statistical Analysis"],
-  },
-  {
-    title: "Languages",
-    icon: GlobeIcon,
-    tone: { bg: "bg-neutral-100", text: "text-neutral-700", border: "border-neutral-300" },
-    items: ["English (IELTS 7.0)"],
   },
 ];
 
@@ -96,8 +71,6 @@ const MARQUEE_TOOLS = [
   "Tableau",
   "Excel",
   "Google Sheets",
-  "Amadeus",
-  "CRM",
 ];
 
 function SkillCard({ group, index }) {

@@ -49,6 +49,7 @@ const experience = [
     bullets: [
       "**SQL Certification** — Certified in SQL for data querying and analysis.",
       "**Experience Certificate** — Awarded by WebAccuracy for role as Data Analyst.",
+      "**IELTS** — Scored a band of 7.",
     ],
   },
 ];
@@ -78,25 +79,25 @@ function ExperienceCard({ entry, index = 0, showDate = false }) {
         delay: index * 0.5,
       }}
       style={{ transformOrigin: pivot }}
-      className="w-full rounded-2xl bg-white shadow-md border border-black/5 p-6"
+      className="w-full rounded-2xl bg-white shadow-md border border-black/5 p-8"
     >
-      <div className="flex items-center gap-3 mb-3">
-        <div className={`w-9 h-9 rounded-lg ${entry.logoClass} text-white flex items-center justify-center font-serif font-semibold shrink-0`}>
+      <div className="flex items-center gap-3 mb-4">
+        <div className={`w-12 h-12 rounded-lg ${entry.logoClass} text-white flex items-center justify-center text-lg font-serif font-semibold shrink-0`}>
           {entry.logo}
         </div>
         <div>
-          <p className="font-semibold text-sm leading-tight">{entry.title}</p>
-          <p className="text-xs text-black/50">{entry.company}</p>
+          <p className="font-semibold text-base leading-tight">{entry.title}</p>
+          <p className="text-sm text-black/50">{entry.company}</p>
         </div>
       </div>
       {showDate && (
-        <div className="rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 text-xs font-medium px-4 py-1.5 w-fit mb-3">
+        <div className="rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 text-xs font-medium px-4 py-1.5 w-fit mb-4">
           {entry.date}
         </div>
       )}
-      <ul className="space-y-2">
+      <ul className="space-y-3">
         {entry.bullets.map((b, i) => (
-          <li key={i} className="text-xs text-black/60 leading-relaxed flex gap-2">
+          <li key={i} className="text-sm text-black/60 leading-relaxed flex gap-2">
             <span className="text-emerald-600 mt-0.5">&bull;</span>
             <span>{renderBold(b)}</span>
           </li>
@@ -163,7 +164,7 @@ export default function Experience() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-24 px-6 md:px-16"
+      className="py-24 px-6 md:px-16 lg:px-8"
     >
       <div className="max-w-2xl mx-auto text-center mb-16">
         <div className="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-3">
@@ -176,7 +177,7 @@ export default function Experience() {
         </p>
       </div>
 
-      <div className="hidden lg:block max-w-7xl mx-auto">
+      <div className="hidden lg:block max-w-[1600px] mx-auto">
         <HangingTimeline />
       </div>
 

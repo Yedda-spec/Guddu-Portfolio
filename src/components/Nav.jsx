@@ -25,7 +25,7 @@ const links = (resumeLink) => [
   { href: "#about", label: "About" },
   { href: "#craft", label: "Craft" },
   { href: "#experience", label: "Experience" },
-  ...(resumeLink ? [{ href: resumeLink, label: "Portfolio", external: true }] : []),
+  ...(resumeLink ? [{ href: resumeLink, label: "Resume", external: true }] : []),
 ];
 
 export default function Nav() {

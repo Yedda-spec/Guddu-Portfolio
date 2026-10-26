@@ -38,7 +38,7 @@ function CaseStudyCard({ item, index }) {
           )}
         </div>
         <div className="p-5">
-          <p className="font-serif text-lg leading-tight mb-0.5">{item.title}</p>
+          <p className="font-serif text-2xl leading-tight mb-0.5">{item.title}</p>
           {item.subtitle && <p className="text-xs text-black/40 mb-3">{item.subtitle}</p>}
           {item.summary && (
             <p className="text-sm text-black/60 leading-relaxed mb-3 line-clamp-2">{item.summary}</p>
@@ -161,7 +161,7 @@ export default function CraftGallery() {
 
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-    offset: ["start start", "end end"],
+    offset: ["start 15%", "end end"],
   });
   const x = useTransform(scrollYProgress, [0, 1], [0, -maxScroll]);
 
@@ -188,9 +188,9 @@ export default function CraftGallery() {
     window.addEventListener("resize", update);
 
     let observer;
-    if (typeof ResizeObserver !== "undefined" && wrapperRef.current) {
+    if (typeof ResizeObserver !== "undefined" && trackRef.current) {
       observer = new ResizeObserver(update);
-      observer.observe(wrapperRef.current);
+      observer.observe(trackRef.current);
     }
 
     document.fonts?.ready?.then(update);
@@ -202,23 +202,27 @@ export default function CraftGallery() {
   }, []);
 
   return (
-    <div className="relative py-20">
+    <div className="relative py-12 hero-grid-bg">
+      <div
+        aria-hidden
+        className="absolute -top-24 left-1/2 -translate-x-1/2 w-160 h-160 rounded-full bg-emerald-200/25 blur-[110px] pointer-events-none"
+      />
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="font-serif text-4xl md:text-7xl px-6 md:px-16 mb-10"
+        className="font-serif text-4xl md:text-7xl px-6 md:px-16 mb-1"
       >
         Craft I&rsquo;m proud of
       </motion.h2>
 
       <div
         ref={scrollRef}
-        style={{ height: `calc(100vh + ${maxScroll}px)` }}
+        style={{ height: `calc(85vh + ${maxScroll}px)` }}
         className="relative"
       >
-        <div ref={wrapperRef} className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <div ref={wrapperRef} className="sticky top-[15vh] h-[85vh] flex items-center overflow-hidden">
           <motion.div
             ref={trackRef}
             style={{ x }}

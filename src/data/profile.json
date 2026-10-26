@@ -22,7 +22,7 @@
   "phone": "918287110257",
   "linkedin": "https://www.linkedin.com/in/sandeepa-patra-a4a124217/",
   "github": "https://github.com/Yedda-spec",
-  "resumeLink": "",
+  "resumeLink": "https://drive.google.com/file/d/15CWu87ALAlKDyT1Sd478QnLuC1WuvFoT/view?usp=sharing",
   "externalLink": "",
   "tools": ["SQL", "MS Excel (Advanced)", "Power BI", "Google Sheets", "MS Office Suite"],
   "skills": [
@@ -44,7 +44,8 @@
   ],
   "achievements": [
     { "title": "SQL Certification", "detail": "Certified in SQL for data querying and analysis." },
-    { "title": "Experience Certificate", "detail": "Awarded by WebAccuracy for role as Data Analyst." }
+    { "title": "Experience Certificate", "detail": "Awarded by WebAccuracy for role as Data Analyst." },
+    { "title": "IELTS", "detail": "Scored a band of 7." }
   ],
   "craftItems": [
     {
