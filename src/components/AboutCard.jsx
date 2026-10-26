@@ -13,18 +13,17 @@ const paragraphs = [
 
 function AboutText() {
   return (
-    <div className="relative z-10 max-w-3xl mx-auto px-6 text-center flex flex-col gap-6">
+    <div className="relative z-10 max-w-3xl mx-auto px-6 text-center flex flex-col gap-3 md:gap-6">
       {paragraphs.map((p, i) => (
         <motion.p
           key={i}
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: i * 0.2 }}
           className={
             i === 0
-              ? "font-[Playfair_Display] text-3xl md:text-5xl italic text-white leading-snug"
-              : "text-base md:text-lg text-white/70 font-[Inter]"
+              ? "font-[Playfair_Display] text-xl sm:text-2xl md:text-5xl italic text-white leading-snug"
+              : "text-xs sm:text-sm md:text-lg text-white/90 font-[Inter]"
           }
         >
           {p}
@@ -51,7 +50,7 @@ export default function AboutCard() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${BG_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/60 to-black/80" />
         <div className="absolute inset-0 grain-overlay" />
         <div className="relative h-full flex items-center">
           <AboutText />
@@ -67,7 +66,7 @@ export default function AboutCard() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${BG_IMAGE})`, scale, borderRadius: radius }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/60 to-black/80" />
         <div className="absolute inset-0 grain-overlay" />
         <div className="relative h-full flex items-center">
           <AboutText />

@@ -172,9 +172,14 @@ export default function CraftGallery() {
       if (!wrapperRef.current || !trackRef.current) return;
 
       const isMd = window.matchMedia("(min-width: 768px)").matches;
+      const isLg = window.matchMedia("(min-width: 1024px)").matches;
       const padding = isMd ? 64 : 24;
+      const visibleCards = isLg ? 3 : isMd ? 2 : 1;
       const wrapperWidth = wrapperRef.current.clientWidth;
-      const nextCardWidth = Math.max(0, (wrapperWidth - padding * 2 - GAP * 2) / 3);
+      const nextCardWidth = Math.max(
+        0,
+        (wrapperWidth - padding * 2 - GAP * (visibleCards - 1)) / visibleCards
+      );
       setCardWidth(nextCardWidth);
 
       requestAnimationFrame(() => {
@@ -217,31 +222,47 @@ export default function CraftGallery() {
         Craft I&rsquo;m proud of
       </motion.h2>
 
-      <div
-        ref={scrollRef}
-        style={{ height: `calc(85vh + ${maxScroll}px)` }}
-        className="relative"
-      >
-        <div ref={wrapperRef} className="sticky top-[15vh] h-[85vh] flex items-center overflow-hidden">
-          <motion.div
-            ref={trackRef}
-            style={{ x }}
-            className="flex gap-8 px-6 md:px-16 shrink-0"
-          >
-            {profile.craftItems.map((item, i) => (
-              <div
-                key={item.id}
-                className="shrink-0"
-                style={{ width: cardWidth ? `${cardWidth}px` : undefined }}
-              >
-                {item.type === "case-study" ? (
-                  <CaseStudyCard item={item} index={i} />
-                ) : (
-                  <PosterCard item={item} index={i} onOpen={setActive} />
-                )}
-              </div>
-            ))}
-          </motion.div>
+      <div className="hidden sm:block">
+        <div
+          ref={scrollRef}
+          style={{ height: `calc(85vh + ${maxScroll}px)` }}
+          className="relative"
+        >
+          <div ref={wrapperRef} className="sticky top-[15vh] h-[85vh] flex items-center overflow-hidden">
+            <motion.div
+              ref={trackRef}
+              style={{ x }}
+              className="flex gap-8 px-6 md:px-16 shrink-0"
+            >
+              {profile.craftItems.map((item, i) => (
+                <div
+                  key={item.id}
+                  className="shrink-0"
+                  style={{ width: cardWidth ? `${cardWidth}px` : undefined }}
+                >
+                  {item.type === "case-study" ? (
+                    <CaseStudyCard item={item} index={i} />
+                  ) : (
+                    <PosterCard item={item} index={i} onOpen={setActive} />
+                  )}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      <div className="sm:hidden overflow-x-auto snap-x snap-mandatory px-6 pb-1">
+        <div className="flex gap-4 w-max">
+          {profile.craftItems.map((item, i) => (
+            <div key={item.id} className="shrink-0 w-[78vw] max-w-xs snap-start">
+              {item.type === "case-study" ? (
+                <CaseStudyCard item={item} index={i} />
+              ) : (
+                <PosterCard item={item} index={i} onOpen={setActive} />
+              )}
+            </div>
+          ))}
         </div>
       </div>
       <CraftModal item={active} onClose={() => setActive(null)} />

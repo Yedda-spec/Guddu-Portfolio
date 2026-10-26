@@ -69,11 +69,11 @@ export default function Hero() {
   const { heroImages, heroTagline, name, role, experienceYears, location, openToWork } = profile;
 
   return (
-    <div className="relative h-[100vh] min-h-[820px] md:min-h-[880px] hero-grid-bg overflow-hidden">
+    <div className="relative h-[100vh] min-h-[820px] md:min-h-[880px] hero-grid-bg overflow-hidden flex items-center lg:block">
       <Sticker
         src={heroImages.cautionSign}
         label="Caution Sign"
-        className="hidden md:block left-[6%] top-[10%] w-40 h-40"
+        className="hidden lg:block left-[6%] top-[10%] w-40 h-40"
         rotate={-8}
         from={{ x: -140, y: -160 }}
         delay={0}
@@ -81,7 +81,7 @@ export default function Hero() {
       <Sticker
         src={heroImages.photo}
         label="Portrait Photo"
-        className="hidden md:block left-[12%] top-[26%] w-[300px] h-[380px]"
+        className="hidden lg:block left-[12%] top-[26%] w-[300px] h-[380px]"
         rotate={-4}
         rounded
         fit="cover"
@@ -91,7 +91,7 @@ export default function Hero() {
       <Sticker
         src={heroImages.computer}
         label="Computer"
-        className="hidden md:block left-[40%] top-[8%] w-140 h-125"
+        className="hidden lg:block left-[40%] top-[8%] w-72 h-64 xl:w-96 xl:h-80 2xl:w-140 2xl:h-125"
         rotate={6}
         from={{ x: 40, y: -180 }}
         delay={0.5}
@@ -99,7 +99,7 @@ export default function Hero() {
       <Sticker
         src={heroImages.coffee}
         label="Coffee"
-        className="hidden md:block left-[4%] top-[60%] w-54 h-54"
+        className="hidden lg:block left-[4%] top-[60%] w-54 h-54"
         rotate={10}
         from={{ x: -220, y: 60 }}
         delay={0.75}
@@ -107,7 +107,7 @@ export default function Hero() {
       <Sticker
         src={heroImages.cabinet}
         label="Filing Cabinet"
-        className="hidden md:block left-[80%] top-[55%] w-28 h-28"
+        className="hidden lg:block left-[80%] top-[66%] w-28 h-28"
         rotate={-6}
         from={{ x: 240, y: 40 }}
         delay={1}
@@ -115,7 +115,7 @@ export default function Hero() {
       <Sticker
         src={heroImages.nameTag}
         label="Name Tag"
-        className="hidden md:block left-[26%] top-[46%] w-68 h-46"
+        className="hidden lg:block left-[26%] top-[46%] w-68 h-46"
         rotate={4}
         from={{ x: -200, y: -20 }}
         delay={0.4}
@@ -123,14 +123,14 @@ export default function Hero() {
       <Sticker
         src={heroImages.welcomeMat}
         label="Welcome Mat"
-        className="hidden md:block left-[34%] top-[55%] w-156 h-120"
+        className="hidden lg:block left-[34%] top-[55%] w-156 h-120"
         rotate={-3}
         from={{ x: -60, y: 220 }}
         delay={0.9}
       />
 
       <motion.div
-        className="hidden md:block absolute left-[86%] top-[4%] w-40 h-50"
+        className="hidden lg:block absolute left-[86%] top-[4%] w-40 h-50"
         initial={{ opacity: 0, x: 200, y: -160, rotate: 24 }}
         animate={{ opacity: 1, x: 0, y: 0, rotate: 3 }}
         transition={{ duration: 2.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -174,9 +174,9 @@ export default function Hero() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="absolute top-[44%] left-6 right-6 md:left-[66%] md:right-10 md:top-[30%]"
+        className="w-full px-6 text-center lg:text-left lg:absolute lg:top-[32%] lg:left-[70%] lg:right-8 lg:px-0 lg:w-auto"
       >
-        <div className="flex flex-wrap items-center gap-2 mb-5">
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-5">
           <span className="rounded-full bg-black/5 border border-black/10 px-3 py-1 text-xs font-[Inter] text-black/60">
             {location}
           </span>
@@ -187,7 +187,7 @@ export default function Hero() {
             </span>
           )}
         </div>
-        <h1 className="font-serif text-3xl md:text-4xl font-extrabold leading-tight text-black">
+        <h1 className="font-serif text-3xl md:text-4xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-extrabold leading-tight text-black">
           {heroTagline}
         </h1>
         <p className="mt-4 text-sm md:text-base font-[Inter] text-black/60">

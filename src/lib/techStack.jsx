@@ -101,8 +101,8 @@ export function TechBadge({ name }) {
 
   return (
     <div className="flex flex-col items-center gap-3 rounded-2xl border border-black/5 bg-white px-6 py-6 shadow-sm shrink-0 w-32">
-      <div className={`w-12 h-12 rounded-xl ${tone.bg} ${tone.text} flex items-center justify-center`}>
-        {Icon ? <Icon size={22} /> : <span className="text-sm font-bold">{initials}</span>}
+      <div className={`w-6 h-6 sm:w-12 sm:h-12 rounded-xl ${tone.bg} ${tone.text} flex items-center justify-center`}>
+        {Icon ? <Icon className="text-xs sm:text-[22px]" /> : <span className="text-[8px] sm:text-sm font-bold">{initials}</span>}
       </div>
       <span className="text-xs text-black/60 text-center leading-tight">{name}</span>
     </div>

@@ -17,13 +17,13 @@ function Home() {
       <section id="hero">
         <Hero />
       </section>
-      <section id="about">
+      <section id="about" className="scroll-mt-20">
         <AboutCard />
       </section>
-      <section id="craft">
+      <section id="craft" className="scroll-mt-20">
         <CraftGallery />
       </section>
-      <section id="experience">
+      <section id="experience" className="scroll-mt-20">
         <Experience />
       </section>
       <section id="skills">
